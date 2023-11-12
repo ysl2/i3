@@ -5,7 +5,7 @@ bindsym $mod+p workspace prev
 gaps inner 10px
 gaps outer 10px
 exec --no-startup-id bash ~/.config/i3/autostart.sh
-set $terminal st
+set $terminal alacritty
 bindsym $mod+y exec --no-startup-id $terminal -c "spterm"
 bindsym $mod+minus move scratchpad
 bindsym $mod+equal scratchpad show
