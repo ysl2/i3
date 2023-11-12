@@ -2,6 +2,6 @@
 
 ![](i3wm.png)
 
-Build i3 and i3blocks from source. Also need `~/.config/i3blocks-contrib`.
+Build i3 and i3blocks from source.
 
-`config_bak` and `i3blocs.bak.conf` are the offical config files, just for backup.
+`config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.

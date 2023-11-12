@@ -1,5 +1,5 @@
-default_border pixel 5
-default_floating_border pixel 5
+default_border pixel 3
+default_floating_border pixel 3
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 gaps inner 10px
@@ -184,14 +184,14 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
         colors {
-            background #00000090
-            statusline #ffffff90
-            separator #66666690
+            background #000000b0
+            statusline #ffffffb0
+            separator #666666b0
 
-            focused_workspace  #4c789990 #28557790 #ffffff90
-            active_workspace   #33333390 #5f676a90 #ffffff90
-            inactive_workspace #33333390 #22222290 #88888890
-            urgent_workspace   #2f343a90 #90000090 #ffffff90
-            binding_mode       #2f343a90 #90000090 #ffffff90
+            focused_workspace  #4c7899b0 #285577b0 #ffffffb0
+            active_workspace   #333333b0 #5f676ab0 #ffffffb0
+            inactive_workspace #333333b0 #222222b0 #888888b0
+            urgent_workspace   #2f343ab0 #900000b0 #ffffffb0
+            binding_mode       #2f343ab0 #900000b0 #ffffffb0
         }
 }
