@@ -4,6 +4,10 @@
 
 Build i3 and i3blocks from official source repo.
 
+```bash
+git clone git@github.com:ysl2/i3.git ~/.config/i3
+```
+
 Also:
 
 ```bash
