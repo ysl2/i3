@@ -1,9 +1,6 @@
 # i3
 
-`config_bak` is the offical config file, for backup.
+`config_bak` and `i3blocs.bak.conf` is the offical config file, for backup.
 
-```bash
-sudo apt install -y i3
-git clone git@github.com:ysl2/i3.git ~/.config/i3
-```
+Build i3 and i3blocks from source. Also need `~/.config/i3blocks-contrib`.
 
