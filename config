@@ -1,5 +1,5 @@
 default_border pixel 3
-default_floating_border pixel 3
+default_floating_border pixel 5
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 gaps inner 10px
