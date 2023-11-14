@@ -10,7 +10,7 @@ bindsym $mod+y exec --no-startup-id $terminal -c "spterm"
 bindsym $mod+Shift+0 move scratchpad
 bindsym $mod+0 scratchpad show
 for_window [class="spterm"] floating enable
-bindsym $mod+s sticky toggle
+bindsym $mod+s floating enable; sticky enable
 bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
 client.focused   #4c7899 #285577 #ffffff #2e9ef4 #2e9ef4
 client.unfocused #333333 #222222 #888888 #5f676a #5f676a
