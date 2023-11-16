@@ -12,6 +12,7 @@ bindsym $mod+0 scratchpad show
 for_window [class="spterm"] floating enable
 bindsym $mod+s floating enable; sticky enable
 bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
+# class          border  backgr. text    indicator child_border
 client.focused   #4c7899 #285577 #ffffff #2e9ef4 #2e9ef4
 client.unfocused #333333 #222222 #888888 #5f676a #5f676a
 smart_borders on
@@ -198,14 +199,11 @@ bar {
         i3bar_command i3bar -t
         position top
         colors {
-            background #00000090
-            statusline #ffffff90
-            separator #66666690
+            background #222222b0
+            statusline #bbbbbbb0
 
-            focused_workspace  #4c789990 #28557790 #ffffff90
-            active_workspace   #33333390 #5f676a90 #ffffff90
-            inactive_workspace #33333390 #22222290 #88888890
-            urgent_workspace   #2f343a90 #90000090 #ffffff90
-            binding_mode       #2f343a90 #90000090 #ffffff90
+            # <colorclass>     <border> <background> <text>
+            focused_workspace  #005577b0 #005577b0 #eeeeeeb0
+            inactive_workspace #222222b0 #222222b0 #bbbbbbb0
         }
 }
