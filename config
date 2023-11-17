@@ -12,6 +12,7 @@ bindsym $mod+0 scratchpad show
 for_window [class="spterm"] floating enable
 bindsym $mod+s floating enable; sticky enable
 bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
+# Ref: https://i3wm.org/docs/userguide.html#client_colors
 # class          border  backgr. text    indicator child_border
 client.focused   #4c7899 #285577 #ffffff #2e9ef4 #2e9ef4
 client.unfocused #333333 #222222 #888888 #5f676a #5f676a
@@ -165,45 +166,19 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         i3bar_command i3bar -t
         position top
+        # Ref: https://i3wm.org/docs/userguide.html#_colors
         colors {
             background #222222b0
             statusline #bbbbbbb0
 
-            # <colorclass>     <border> <background> <text>
-            focused_workspace  #005577b0 #005577b0 #eeeeeeb0
-            inactive_workspace #222222b0 #222222b0 #bbbbbbb0
+            # <colorclass>     <border>  <background> <text>
+            focused_workspace  #005577b0 #005577b0    #eeeeeeb0
+            inactive_workspace #222222b0 #222222b0    #bbbbbbb0
         }
 }
