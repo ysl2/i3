@@ -24,15 +24,15 @@ bindsym $mod+equal resize grow height 10 px or 10 ppt
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 " 1 "
-set $ws2 " 2 "
-set $ws3 " 3 "
-set $ws4 " 4 "
-set $ws5 " 5 "
-set $ws6 " 6 "
-set $ws7 " 7 "
-set $ws8 " 8 "
-set $ws9 " 9 "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 bindsym $mod+Shift+Control+1 rename workspace to $ws1
 bindsym $mod+Shift+Control+2 rename workspace to $ws2
 bindsym $mod+Shift+Control+3 rename workspace to $ws3
