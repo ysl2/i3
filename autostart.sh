@@ -6,6 +6,7 @@
 # I3 spec.
 autotiling &
 ~/.config/i3/i3-scripts/swallow.py &
+~/.config/i3/i3-scripts/sticky.py &
 
 # Localhost config
 [ -f ~/.config/i3/autostart.localhost.sh ] && ~/.config/i3/autostart.localhost.sh
