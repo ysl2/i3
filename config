@@ -189,4 +189,5 @@ bar {
             inactive_workspace #222222b0 #222222b0    #bbbbbbb0
         }
         tray_output primary
+        workspace_min_width 40
 }
