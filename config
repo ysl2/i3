@@ -2,6 +2,8 @@ default_border pixel 3
 default_floating_border pixel 3
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
+bindsym $mod+Ctrl+h exec --no-startup-id python ~/.config/i3/i3-scripts/h_l.py '-1'
+bindsym $mod+Ctrl+l exec --no-startup-id python ~/.config/i3/i3-scripts/h_l.py '+1'
 gaps inner 10px
 gaps outer 10px
 exec --no-startup-id bash ~/.config/i3/autostart.sh
