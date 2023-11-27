@@ -43,8 +43,7 @@ bindsym $mod+Shift+Control+6 rename workspace to $ws6
 bindsym $mod+Shift+Control+7 rename workspace to $ws7
 bindsym $mod+Shift+Control+8 rename workspace to $ws8
 bindsym $mod+Shift+Control+9 rename workspace to $ws9
-bindsym $mod+r exec bash ~/.config/i3/i3-scripts/mv_ws_to_ws.sh
-bindsym $mod+Shift+r exec bash ~/.config/i3/i3-scripts/mv_ws_to_ws.sh 2
+bindsym $mod+r exec python ~/.config/i3/i3-scripts/mv_ws_to_ws.py
 bindsym $mod+g exec i3-msg workspace `zenity --entry --text "Goto workspace:"`
 bindsym $mod+Shift+g exec bash ~/.config/i3/i3-scripts/mv_con_to_ws.sh
 bindsym $mod+Ctrl+g exec bash ~/.config/i3/i3-scripts/mv_ws_to_mon.sh
