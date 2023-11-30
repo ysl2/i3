@@ -6,7 +6,6 @@ default_border pixel 3
 default_floating_border pixel 3
 smart_borders on
 gaps inner 10px
-gaps outer 10px
 
 # App keymaps
 bindsym $mod+y exec --no-startup-id $terminal -c "spterm"
