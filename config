@@ -14,6 +14,7 @@ bindsym $mod+Ctrl+a exec --no-startup-id flameshot gui
 for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="flameshot"] floating enable
 for_window [class="dosbox"] floating enable
+for_window [class="spark-store"] floating enable
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
