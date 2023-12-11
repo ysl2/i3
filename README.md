@@ -12,8 +12,7 @@ Also:
 
 ```bash
 pip install autotiling
-picom (build from official source repo)
-sudo apt install feh
+sudo apt install xdotool
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.

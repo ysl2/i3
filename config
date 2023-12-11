@@ -37,14 +37,14 @@ bindsym $mod+Shift+Control+7 rename workspace to $ws7
 bindsym $mod+Shift+Control+8 rename workspace to $ws8
 bindsym $mod+Shift+Control+9 rename workspace to $ws9
 bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
-bindsym $mod+r exec --no-startup-id python ~/.config/i3/i3-scripts/mv_ws_to_ws_or_mon.py
+bindsym $mod+r exec --no-startup-id python3 ~/.config/i3/i3-scripts/mv_ws_to_ws_or_mon.py
 bindsym $mod+g exec --no-startup-id i3-msg workspace `zenity --entry --text "Goto workspace:"`
 bindsym $mod+Shift+g exec --no-startup-id bash ~/.config/i3/i3-scripts/mv_con_to_ws.sh
 # Switch
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
-bindsym $mod+Ctrl+h exec --no-startup-id python ~/.config/i3/i3-scripts/h_l.py '-1'
-bindsym $mod+Ctrl+l exec --no-startup-id python ~/.config/i3/i3-scripts/h_l.py '+1'
+bindsym $mod+Ctrl+h exec --no-startup-id python3 ~/.config/i3/i3-scripts/h_l.py '-1'
+bindsym $mod+Ctrl+l exec --no-startup-id python3 ~/.config/i3/i3-scripts/h_l.py '+1'
 # Resize
 bindsym $mod+bracketleft resize shrink width 10 px or 10 ppt
 bindsym $mod+bracketright resize grow width 10 px or 10 ppt
@@ -53,7 +53,7 @@ bindsym $mod+equal resize grow height 10 px or 10 ppt
 # Others
 bindsym $mod+Shift+0 move scratchpad
 bindsym $mod+0 scratchpad show; resize set 50 ppt 50 ppt; move position center
-bindsym $mod+s exec --no-startup-id python ~/.config/i3/i3-scripts/sticky_toggle.py
+bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/i3-scripts/sticky_toggle.py
 
 # Ref: https://i3wm.org/docs/userguide.html#client_colors
 # class          border  backgr. text    indicator child_border
