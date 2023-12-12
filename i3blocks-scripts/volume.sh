@@ -12,4 +12,4 @@ else
   result="${volume}%"
 fi
 
-echo "󰕾 $result"
+echo "Vol:$result "

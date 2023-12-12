@@ -8,13 +8,13 @@ get_battery() {
     fi
 
     status=$(cat "$status_file")
-    if [ "$status" = "Charging" ]; then
-        battery_icon="󰐼"
-    elif [ "$status" = "Discharging" ]; then
-        battery_icon=""
-    else
-        battery_icon=""
-    fi
+    # if [ "$status" = "Charging" ]; then
+    #     battery_icon="󰐼"
+    # elif [ "$status" = "Discharging" ]; then
+    #     battery_icon=""
+    # else
+    #     battery_icon=""
+    # fi
 
     capacity=$(cat "$capacity_file")
     if [ -z "$capacity" ]; then
@@ -23,7 +23,8 @@ get_battery() {
     fi
 
     # printf -v capacity "%3s" "$capacity"
-    echo "$battery_icon $capacity%"
+    #echo "$battery_icon $capacity%"
+    echo "Bat:$capacity%($status) "
 }
 
 get_battery
