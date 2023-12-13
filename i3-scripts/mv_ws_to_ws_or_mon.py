@@ -13,7 +13,7 @@ PROJECTOR = {
 
 
 def get_input():
-    command = 'zenity --entry --text "Rename workspace to workspace or monitor (sequence seprated by whitespace):"'
+    command = 'zenity --entry --title "" --text "Rename workspace to workspace or monitor (sequence seprated by whitespace):"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, shell=True)
     process.wait()
     sequence = process.stdout.read().decode()

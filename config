@@ -39,7 +39,7 @@ bindsym $mod+Shift+Control+8 rename workspace to $ws8
 bindsym $mod+Shift+Control+9 rename workspace to $ws9
 bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
 bindsym $mod+r exec --no-startup-id python3 ~/.config/i3/i3-scripts/mv_ws_to_ws_or_mon.py
-bindsym $mod+g exec --no-startup-id i3-msg workspace `zenity --entry --text "Goto workspace:"`
+bindsym $mod+g exec --no-startup-id i3-msg workspace `zenity --entry --title '' --text 'Goto workspace:'`
 bindsym $mod+Shift+g exec --no-startup-id bash ~/.config/i3/i3-scripts/mv_con_to_ws.sh
 # Switch
 bindsym $mod+n workspace next
