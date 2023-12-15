@@ -208,9 +208,4 @@ output X11-1 {
 }
 input "type:keyboard" {
     xkb_options caps:swapescape
-    repeat_delay 250
-    repeat_rate 30
-}
-input "type:touch" {
-    natural_scroll enabled
 }
