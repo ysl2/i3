@@ -7,6 +7,7 @@ default_floating_border pixel 3
 smart_borders on
 gaps inner 10px
 
+set $mod Mod4
 # App keymaps
 bindsym $mod+y exec --no-startup-id $terminal -c "spterm"
 bindsym $mod+Ctrl+a exec --no-startup-id flameshot gui
@@ -71,8 +72,6 @@ client.unfocused #333333 #222222 #888888 #5f676a #5f676a
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
-set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
