@@ -187,7 +187,7 @@ bindsym $mod+Shift+e exec --no-startup-id bash ~/.config/i3/i3-scripts/exit_i3.s
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        i3bar_command i3bar -t
+        #i3bar_command i3bar -t
         position top
         # Ref: https://i3wm.org/docs/userguide.html#_colors
         colors {
@@ -200,4 +200,17 @@ bar {
         }
         tray_output primary
         workspace_min_width 40
+}
+
+output X11-1 {
+    mode 1920x1080@60Hz
+    bg ~/Pictures/wall.png stretch
+}
+input "type:keyboard" {
+    xkb_options caps:swapescape
+    repeat_delay 250
+    repeat_rate 30
+}
+input "type:touch" {
+    natural_scroll enabled
 }
