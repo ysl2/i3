@@ -195,8 +195,11 @@ bar {
             statusline #bbbbbbb0
 
             # <colorclass>     <border>  <background> <text>
-            focused_workspace  #005577b0 #005577b0    #eeeeeeb0
-            inactive_workspace #222222b0 #222222b0    #bbbbbbb0
+            focused_workspace  #005577b0 #005577b0 #ffffffb0
+            active_workspace   #5f676ab0 #5f676ab0 #ffffffb0
+            inactive_workspace #222222b0 #222222b0 #888888b0
+            urgent_workspace   #900000b0 #900000b0 #ffffffb0
+            binding_mode       #900000b0 #900000b0 #ffffffb0
         }
         tray_output primary
         workspace_min_width 40
