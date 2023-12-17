@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Common
 ~/.scripts/window-manager/autostart.sh # -> picom, natural scrolling, keyboard, etc.
