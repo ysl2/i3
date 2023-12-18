@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Common
-~/.scripts/window-manager/autostart.sh # -> picom, natural scrolling, keyboard, etc.
+# -> picom, natural scrolling, keyboard, etc.
+[ -f ~/.scripts/window-manager/autostart.sh ] && ~/.scripts/window-manager/autostart.sh
 
 # I3 spec.
 autotiling &
