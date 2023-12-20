@@ -145,7 +145,7 @@ bindsym $mod+w exec --no-startup-id i3-autolayout tabmode --file-layout /tmp/i3-
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle; resize set 50 ppt 50 ppt; move position center
+bindsym $mod+Shift+space sticky disable; floating toggle; resize set 50 ppt 50 ppt; move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
