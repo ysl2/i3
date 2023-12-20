@@ -35,12 +35,12 @@ def insert_default(sequence):
 
 def rename_workspace(ws_from, ws_to):
     command = f'i3-msg rename workspace \'"{ws_from}"\' to temp\\; rename workspace \'"{ws_to}"\' to "{ws_from}"\\; rename workspace temp to \'"{ws_to}"\''
-    subprocess.Popen(command, shell=True)
+    subprocess.run(command, shell=True)
 
 
 def move_workspace_to_monitor(ws, mon):
     command = f'i3-msg workspace {ws}\\; move workspace to output {mon}'
-    subprocess.Popen(command, shell=True)
+    subprocess.run(command, shell=True)
 
 
 def is_monitor(arg):
