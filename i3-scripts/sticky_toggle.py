@@ -9,6 +9,8 @@ def main():
     if focused.sticky:
         focused.command('sticky disable')
         return
+    if focused.fullscreen_mode:
+        focused.command('fullscreen disable')
     if 'off' in focused.floating:
         focused.command('floating enable')
         focused.command('resize set 50 ppt 50 ppt')
