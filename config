@@ -9,10 +9,10 @@ gaps inner 10px
 
 set $mod Mod4
 # App keymaps
-bindsym $mod+y exec --no-startup-id $terminal -c "spterm"
+bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
 bindsym $mod+Ctrl+a exec --no-startup-id flameshot gui
 # Rules
-for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center
+for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center, move scratchpad, scratchpad show
 for_window [class="flameshot"] floating enable
 for_window [class="dosbox"] floating enable
 for_window [class="spark-store"] floating enable
@@ -58,7 +58,7 @@ bindsym $mod+equal resize grow height 10 px or 10 ppt
 # Others
 bindsym $mod+Shift+0 move scratchpad
 bindsym $mod+0 scratchpad show; resize set 50 ppt 50 ppt; move position center
-bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/i3-scripts/sticky_toggle.py
+bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_sticky.py
 
 # Ref: https://i3wm.org/docs/userguide.html#client_colors
 # class          border  backgr. text    indicator child_border
