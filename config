@@ -18,6 +18,7 @@ for_window [class="dosbox"] floating enable
 for_window [class="spark-store"] floating enable
 for_window [class="baidunetdisk"] floating enable
 for_window [class="zenity"] floating enable
+for_window [class="Lxappearance"] floating enable
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
