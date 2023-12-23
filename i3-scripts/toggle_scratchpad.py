@@ -36,7 +36,7 @@ def main():
             show_spterm(spterm)
         return
     # If we cannot find spterm, we should open it.
-    ipc.command(f'exec alacritty -c {args.scratchpad_class}')
+    ipc.command(f'exec --no-startup-id alacritty -c {args.scratchpad_class}')
 
 
 if __name__ == '__main__':
