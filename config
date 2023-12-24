@@ -143,7 +143,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s layout stacking
-bindsym $mod+w exec --no-startup-id i3-autolayout tabmode --file-layout /tmp/i3-autolayout-tabmode.save
+bindsym $mod+w exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_tabbed.py
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
