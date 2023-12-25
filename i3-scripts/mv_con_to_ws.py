@@ -11,6 +11,7 @@ def main():
     result = subprocess.run("zenity --entry --title '' --text 'Move current container to workspace:'", shell=True, capture_output=True, text=True)
     result = result.stdout.strip()
     focused.command(f'move container to workspace "{result}"')
+    ipc.command(f'workspace "{result}"')
 
 
 if __name__ == '__main__':
