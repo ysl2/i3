@@ -10,7 +10,9 @@ gaps inner 10px
 set $mod Mod4
 # App keymaps
 bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
-bindsym $mod+Ctrl+a exec --no-startup-id flameshot gui
+bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh
+bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh eng
+bindsym $mod+Ctrl+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh chi_sim
 # Rules
 for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="flameshot"] floating enable
