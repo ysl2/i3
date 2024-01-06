@@ -14,17 +14,20 @@ bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapp
 bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh eng
 bindsym $mod+Ctrl+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh chi_sim
 # Rules
+# Float and resize and center
 for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center
+for_window [class="Lxappearance"] floating enable, resize set 50 ppt 50 ppt, move position center
+for_window [class="Arandr"] floating enable, resize set 50 ppt 50 ppt, move position center
+for_window [class="Gnome-tweaks"] floating enable, resize set 50 ppt 50 ppt, move position center
+# Only float
 for_window [class="flameshot"] floating enable
 for_window [class="dosbox"] floating enable
 for_window [class="spark-store"] floating enable
 for_window [class="baidunetdisk"] floating enable
 for_window [class="zenity"] floating enable
-for_window [class="Lxappearance"] floating enable, floating enable, resize set 50 ppt 50 ppt, move position center
-for_window [class="Arandr"] floating enable, resize set 50 ppt 50 ppt, move position center
-for_window [class="Gnome-tweaks"] floating enable, resize set 50 ppt 50 ppt, move position center
-for_window [class="ITK-SNAP"] border normal
 for_window [class="feh"] floating enable
+# Others
+for_window [class="ITK-SNAP"] border normal
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
