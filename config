@@ -108,7 +108,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id $terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q exec --no-startup-id python3 ~/.config/i3/i3-scripts/kill.py
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -fn monospace:size=17
