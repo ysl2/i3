@@ -20,6 +20,7 @@ for_window [class="Lxappearance"] floating enable, resize set 50 ppt 50 ppt, mov
 for_window [class="Arandr"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="Gnome-tweaks"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="flameshot" title="Save screenshot"] floating enable, resize set 50 ppt 50 ppt, move position center
+for_window [window_role="GtkFileChooserDialog"] floating enable, resize set 50 ppt 50 ppt, move position center
 # Only float
 for_window [class="flameshot"] floating enable
 for_window [class="dosbox"] floating enable
