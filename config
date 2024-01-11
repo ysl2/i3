@@ -10,6 +10,7 @@ gaps inner 10px
 set $mod Mod4
 # App keymaps
 bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
+bindsym $mod+Shift+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -r
 bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui
 bindsym $mod+Shift+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh launcher
 bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui eng
