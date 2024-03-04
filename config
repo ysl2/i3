@@ -7,14 +7,6 @@ default_floating_border pixel 3
 smart_borders on
 gaps inner 10px
 
-set $mod Mod4
-# App keymaps
-bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
-bindsym $mod+Shift+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -r
-bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui
-bindsym $mod+Shift+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh launcher
-bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui eng
-bindsym $mod+Ctrl+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui chi_sim
 # Rules
 # Float and resize and center
 for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center
@@ -33,6 +25,14 @@ for_window [class="feh"] floating enable
 # Others
 for_window [class="ITK-SNAP"] border normal
 
+set $mod Mod4
+# App keymaps
+bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
+bindsym $mod+Shift+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -r
+bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui
+bindsym $mod+Shift+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh launcher
+bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui eng
+bindsym $mod+Ctrl+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui chi_sim
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -74,10 +74,16 @@ bindsym $mod+Mod1+h exec --no-startup-id xdotool mousedown 1 mousemove_relative 
 bindsym $mod+Mod1+j exec --no-startup-id xdotool mousedown 1 mousemove_relative -- 0 1 mouseup 1
 bindsym $mod+Mod1+k exec --no-startup-id xdotool mousedown 1 mousemove_relative -- 0 -1 mouseup 1
 bindsym $mod+Mod1+l exec --no-startup-id xdotool mousedown 1 mousemove_relative -- 1 0 mouseup 1
-# Others
+# Scratchpad
 bindsym $mod+Shift+0 move scratchpad
 bindsym $mod+0 scratchpad show; resize set 50 ppt 50 ppt; move position center
 bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_sticky.py
+# Volume & Brightness
+bindsym $mod+Mod1+plus exec --no-startup-id brightnessctl set 5%+
+bindsym $mod+Mod1+minus exec --no-startup-id brightnessctl set 5%-
+bindsym $mod+Mod1+bracketright exec --no-startup-id amixer -q -M set Master 5%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+Mod1+bracketleft exec --no-startup-id amixer -q -M set Master 5%- unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+Mod1+backslash exec --no-startup-id amixer -q -M set Master toggle && pkill -RTMIN+10 i3blocks
 
 # Ref: https://i3wm.org/docs/userguide.html#client_colors
 # class          border    backgr.   text      indicator child_border
