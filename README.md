@@ -16,3 +16,5 @@ sudo apt install xdotool
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.
+
+Log dir: `~/.vocal/.lock/i3`

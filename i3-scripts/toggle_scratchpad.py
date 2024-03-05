@@ -10,6 +10,7 @@ import subprocess
 parser = argparse.ArgumentParser()
 parser.add_argument('scratchpad_class', type=str, nargs='?', default='spterm')
 parser.add_argument('-r', '--reset', action='store_true')
+parser.add_argument('-c', '--cwd', action='store_true')
 args = parser.parse_args()
 
 user = getpass.getuser()
@@ -28,7 +29,11 @@ def show_spterm(ipc, spterm):
         spterm.command('scratchpad show, resize set 50 ppt 50 ppt, move position center')
         return
     # Create spterm
-    ipc.command(f'exec --no-startup-id alacritty -c {args.scratchpad_class}')
+    terminal_cmd = f'alacritty -c {args.scratchpad_class}'
+    if args.cwd:
+        ipc.command(f'exec --no-startup-id cd "$(xcwd)" && exec {terminal_cmd}')
+    else:
+        ipc.command(f'exec --no-startup-id {terminal_cmd}')
     # Log the spterm class.
     logdir.mkdir(parents=True, exist_ok=True)
     with open(logfile, 'w') as f:
