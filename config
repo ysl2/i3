@@ -26,14 +26,6 @@ for_window [class="feh"] floating enable
 for_window [class="ITK-SNAP"] border normal
 
 set $mod Mod4
-# App keymaps
-bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
-bindsym $mod+Ctrl+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -r
-bindsym $mod+Shift+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -c
-bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui
-bindsym $mod+Shift+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh launcher
-bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui eng
-bindsym $mod+Ctrl+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui chi_sim
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -59,9 +51,12 @@ bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
 bindsym $mod+r exec --no-startup-id python3 ~/.config/i3/i3-scripts/mv_ws_to_ws_or_mon.py
 bindsym $mod+g exec --no-startup-id i3-msg workspace `zenity --entry --title '' --text 'Goto workspace:'`
 bindsym $mod+Shift+g exec --no-startup-id python3 ~/.config/i3/i3-scripts/mv_con_to_ws.py
+bindsym $mod+Ctrl+g exec --no-startup-id python3 ~/.config/i3/i3-scripts/mv_con_to_ws.py -t
 # Switch
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
+bindsym $mod+Shift+n move container to workspace next; workspace next
+bindsym $mod+Shift+p move container to workspace prev; workspace prev
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Ctrl+h exec --no-startup-id python3 ~/.config/i3/i3-scripts/h_l.py '-1'
 bindsym $mod+Ctrl+l exec --no-startup-id python3 ~/.config/i3/i3-scripts/h_l.py '+1'
@@ -70,15 +65,24 @@ bindsym $mod+bracketleft resize shrink width 10 px or 10 ppt
 bindsym $mod+bracketright resize grow width 10 px or 10 ppt
 bindsym $mod+minus resize shrink height 10 px or 10 ppt
 bindsym $mod+equal resize grow height 10 px or 10 ppt
+# Scratchpad & Sticky
+bindsym $mod+Shift+0 move scratchpad
+bindsym $mod+0 scratchpad show; resize set 50 ppt 50 ppt; move position center
+bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm
+bindsym $mod+Shift+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -c
+bindsym $mod+Ctrl+y exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_scratchpad.py spterm -r
+bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_sticky.py
+# Flameshot
+bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui
+bindsym $mod+Shift+Ctrl+a exec --no-startup-id ~/.config/i3/i3-scripts/flameshot_wrapper.sh launcher
+bindsym $mod+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui eng
+bindsym $mod+Ctrl+z exec --no-startup-id bash ~/.config/i3/i3-scripts/flameshot_wrapper.sh gui chi_sim
+# === Mod1 ===
 # Mouse drag
 bindsym $mod+Mod1+h exec --no-startup-id xdotool mousedown 1 mousemove_relative -- -1 0 mouseup 1
 bindsym $mod+Mod1+j exec --no-startup-id xdotool mousedown 1 mousemove_relative -- 0 1 mouseup 1
 bindsym $mod+Mod1+k exec --no-startup-id xdotool mousedown 1 mousemove_relative -- 0 -1 mouseup 1
 bindsym $mod+Mod1+l exec --no-startup-id xdotool mousedown 1 mousemove_relative -- 1 0 mouseup 1
-# Scratchpad
-bindsym $mod+Shift+0 move scratchpad
-bindsym $mod+0 scratchpad show; resize set 50 ppt 50 ppt; move position center
-bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/i3-scripts/toggle_sticky.py
 # Volume & Brightness
 bindsym $mod+Mod1+plus exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+Mod1+minus exec --no-startup-id brightnessctl set 5%-
