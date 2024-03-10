@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export QT_QPA_PLATFORMTHEME=gtk3
+
 focusedwindow_before=$(xdotool getactivewindow)
 
 flameshot_option=$1
@@ -14,4 +16,4 @@ else
         | xclip -in -selection clipboard
 fi
 
-[ "$focusedwindow_before" = "$(xdotool getactivewindow)" ] && xdotool windowfocus "$focusedwindow_before"
+[ -n "$focusedwindow_before" ] && [ "$focusedwindow_before" = "$(xdotool getactivewindow)" ] && xdotool windowfocus "$focusedwindow_before"
