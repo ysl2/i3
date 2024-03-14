@@ -12,7 +12,7 @@ Also:
 
 ```bash
 cargo install i3-autolayout
-sudo apt install xdotool rofi
+sudo apt install xdotool rofi xcwd
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.

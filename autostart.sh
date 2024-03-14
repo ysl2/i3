@@ -11,8 +11,8 @@
 # === I3 spec ===
 # ===============
 i3-autolayout autolayout &
-~/.config/i3/autostart/swallow.py &
-~/.config/i3/autostart/sticky_nofocus.py &
+~/.config/i3/scripts/i3/autostart/swallow.py &
+~/.config/i3/scripts/i3/autostart/sticky_nofocus.py &
 
 
 # ========================
