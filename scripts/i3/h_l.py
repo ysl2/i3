@@ -1,36 +1,32 @@
 #!/usr/bin/env python3
+
 import i3ipc
-import sys
+import argparse
 
 
-def get_workspace_bounds(i3):
-    workspaces = i3.get_workspaces()
-    nums = [w.num for w in workspaces]
-    return min(nums), max(nums)
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--direction', type=str, required=True)
+    parser.add_argument('-c', '--container', action='store_true')
+    return parser.parse_args()
 
 
-def move_to_workspace(i3, direction):
-    current_workspace = i3.get_tree().find_focused().workspace().num
-    min_workspace, max_workspace = get_workspace_bounds(i3)
+def main():
+    args = get_args()
 
-    num_workspaces = max_workspace - min_workspace + 1
+    ipc = i3ipc.Connection()
+    ws_cur = ipc.get_tree().find_focused().workspace().num
 
-    if int(direction) < 0:
-        target_workspace = (current_workspace - 1 - min_workspace) % num_workspaces + min_workspace
-    elif int(direction) > 0:
-        target_workspace = (current_workspace + 1 - min_workspace) % num_workspaces + min_workspace
+    if args.direction == 'h':
+        target = max(ws_cur - 1, 1)
+    elif args.direction == 'l':
+        target = ws_cur + 1
+
+    if args.container:
+        ipc.command(f'move container to workspace number {target}; workspace number {target}')
     else:
-        return
-
-    i3.command(f"workspace number {target_workspace}")
+        ipc.command(f"workspace number {target}")
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <direction>")
-        sys.exit(1)
-
-    direction = sys.argv[1]
-    i3 = i3ipc.Connection()
-
-    move_to_workspace(i3, direction)
+if __name__ == '__main__':
+    main()
