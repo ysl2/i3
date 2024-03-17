@@ -2,7 +2,6 @@
 
 import i3ipc
 import argparse
-import getpass
 import pathlib
 import subprocess
 
@@ -13,10 +12,15 @@ parser.add_argument('-r', '--reset', action='store_true')
 parser.add_argument('-c', '--cwd', action='store_true')
 args = parser.parse_args()
 
-user = getpass.getuser()
-logdir = f'/home/{user}/.vocal/.lock/i3'
-logdir = pathlib.Path(logdir)
+logdir = pathlib.Path().home() / '.vocal/.lock/i3'
 logfile = logdir / args.scratchpad_class
+
+
+def wait_spterm(ipc):
+    while True:
+        spterm = ipc.get_tree().find_focused()
+        if spterm.window_class == args.scratchpad_class:
+            return spterm
 
 
 def show_spterm(ipc, spterm):
@@ -26,8 +30,29 @@ def show_spterm(ipc, spterm):
     ):
         focused.command('fullscreen disable')
     if spterm:
-        spterm.command('scratchpad show, resize set 50 ppt 50 ppt, move position center')
-        return
+        # 1. We first show spterm from scratchpad workspace to outside workspace.
+        spterm.command('scratchpad show')
+        # 2. Then we search it in outside workspaces.
+        spterm = wait_spterm(ipc)
+        mons = {
+            mon.ipc_data['name']: {
+                'width': mon.ipc_data['rect']['width'],
+                'height': mon.ipc_data['rect']['height']
+            }
+            for mon in ipc.get_outputs()
+        }
+        mon = mons[spterm.ipc_data['output']]
+        # 3. And we set the target size for spterm.
+        width = mon['width'] >> 1
+        height = mon['height'] >> 1
+        # 4. Finally, we resize spterm and move it to center.
+        while True:
+            spterm.command(f'resize set {width} px {height} px')
+            spterm = wait_spterm(ipc)
+            rect = spterm.ipc_data['rect']
+            if rect['width'] == width and rect['height'] == height:
+                spterm.command('move position center')
+                return
     # Create spterm
     terminal_cmd = f'alacritty -c {args.scratchpad_class}'
     if args.cwd:
