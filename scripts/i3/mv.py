@@ -68,12 +68,16 @@ def move_workspace_to_monitor(ipc, ws, mon):
 def move_container_to_workspace(ipc, ws):
     focused = ipc.get_tree().find_focused()
     focused.command(f'move to workspace "{ws}"')
+
+    focused = ipc.get_tree().find_by_id(focused.id)
     focused.command('focus')
 
 
 def move_container_to_monitor(ipc, mon):
     focused = ipc.get_tree().find_focused()
     focused.command(f'move to output {project(mon)}')
+
+    focused = ipc.get_tree().find_by_id(focused.id)
     focused.command('focus')
 
 
