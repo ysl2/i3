@@ -4,6 +4,14 @@ import i3ipc
 import argparse
 import pathlib
 import subprocess
+import loguru
+
+
+debuffile = pathlib.Path('/tmp/i3/toggle_scratchpad.log')
+debuffile.parent.mkdir(parents=True, exist_ok=True)
+with open(debuffile, 'w') as f:
+    pass
+loguru.logger.add(debuffile, level='DEBUG')
 
 
 parser = argparse.ArgumentParser()
@@ -34,11 +42,18 @@ def show_spterm(ipc, spterm):
         spterm.command('scratchpad show')
         # 2. Then we search it in outside workspaces.
         spterm = wait_spterm(ipc)
+        mons = {
+            mon.ipc_data['name']: {
+                'width': mon.ipc_data['rect']['width'],
+                'height': mon.ipc_data['rect']['height']
+            }
+            for mon in ipc.get_outputs()
+        }
+        mon = mons[spterm.ipc_data['output']]
         # 3. And we set the target size for spterm.
         ratio = 0.5
-        rect= spterm.workspace().rect
-        width = int(rect.width * ratio)
-        height = int(rect.height * ratio)
+        width = int(mon['width'] * ratio)
+        height = int(mon['height'] * ratio)
         # 4. Finally, we resize spterm and move it to center.
         while True:
             spterm.command(f'resize set {width} px {height} px')
