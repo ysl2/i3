@@ -11,6 +11,7 @@ git clone git@github.com:ysl2/i3.git ~/.config/i3
 Also:
 
 ```bash
+pip install autotiling
 cargo install i3-autolayout
 sudo apt install xdotool rofi xcwd
 ```
