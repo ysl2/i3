@@ -154,6 +154,8 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
+# NOTE: Sometimes the container cannot be focused after moving it to another monitor.
+# So use move.py to manually move and focus the window.
 bindsym $mod+Shift+h exec --no-startup-id python3 ~/.config/i3/scripts/i3/move.py 'left'
 bindsym $mod+Shift+j exec --no-startup-id python3 ~/.config/i3/scripts/i3/move.py 'down'
 bindsym $mod+Shift+k exec --no-startup-id python3 ~/.config/i3/scripts/i3/move.py 'up'
