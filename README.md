@@ -13,7 +13,7 @@ Also:
 ```bash
 pip install autotiling
 cargo install i3-autolayout
-sudo apt install xdotool rofi xcwd
+sudo apt install xdotool rofi xcwd yad
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.

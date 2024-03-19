@@ -27,15 +27,16 @@ def get_args():
 
 def get_input(args):
     if args.container:
-        prompt = 'Move container to workspace or monitor'
+        prompt = 'Move container:'
     elif args.goto:
-        prompt = 'Goto workspace'
+        prompt = 'Goto workspace:'
     else:
-        prompt = 'Rename workspace to workspace or monitor'
+        prompt = 'Rename workspace:'
 
+    prompt = f'<span font="Firacode Nerd Font" font-size="x-large">{prompt}</span>'
     command = (
-        'GTK_THEME="$(cat ~/.config/gtk-3.0/settings.ini | grep gtk-theme-name | cut -d= -f2)" '
-        f'zenity --entry --title "" --text "{prompt} (sequence seprated by whitespace):"'
+        # 'GTK_THEME="$(cat ~/.config/gtk-3.0/settings.ini | grep gtk-theme-name | cut -d= -f2)" '
+        f"yad --entry --title '' --text '{prompt}' --text-align=center --no-buttons --skip-taskbar"
     )
     sequence = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, shell=True)
     sequence = sequence.stdout.decode()
