@@ -4,6 +4,7 @@ import i3ipc
 import argparse
 import pathlib
 import subprocess
+import time
 
 
 parser = argparse.ArgumentParser()
@@ -47,6 +48,7 @@ def show_spterm(ipc, spterm):
         height = mon['height'] >> 1
         # 4. Finally, we resize spterm and move it to center.
         while True:
+            time.sleep(0.05)
             spterm.command(f'resize set {width} px {height} px')
             spterm = wait_spterm(ipc)
             rect = spterm.ipc_data['rect']
