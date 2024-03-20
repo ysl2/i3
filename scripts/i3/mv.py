@@ -95,6 +95,10 @@ def goto_monitor(ipc, mon):
     ipc.command(f'focus {project(mon)}')
 
 
+def kill_workspace(ipc, ws):
+    ipc.command(f'[workspace="{ws}"] kill')
+
+
 def is_monitor(obj):
     return obj in MONS or obj in MONS.values()
 
@@ -111,11 +115,16 @@ def is_goto(obj):
     return obj == 'g'
 
 
+def is_kill(obj):
+    return obj in ['q', 'k']
+
+
 def is_legal(obj):
     return is_monitor(obj) \
         or is_container(obj) \
         or is_workspace(obj) \
-        or is_goto(obj)
+        or is_goto(obj) \
+        or is_kill(obj)
 
 
 def main():
@@ -137,6 +146,10 @@ def main():
         if not is_legal(obj_to):
             if is_container(obj_from):
                 retitle_container(ipc, obj_to)
+            continue
+
+        if is_kill(obj_from) and is_workspace(obj_to):
+            kill_workspace(ipc, obj_to)
             continue
 
         if is_goto(obj_from) and is_workspace(obj_to):
