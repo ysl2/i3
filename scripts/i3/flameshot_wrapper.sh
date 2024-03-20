@@ -2,6 +2,10 @@
 
 export QT_QPA_PLATFORMTHEME=gtk3
 
+if [ -z "$(pidof flameshot)" ]; then
+    flameshot &
+fi
+
 focusedwindow_before=$(xdotool getactivewindow)
 
 flameshot_option=$1
