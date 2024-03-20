@@ -25,11 +25,11 @@ def wait_spterm(ipc):
 
 
 def show_spterm(ipc, spterm):
-    focused = ipc.get_tree().find_focused()
-    if focused.fullscreen_mode and (
-        not spterm or spterm.window != focused.window
-    ):
-        focused.command('fullscreen disable')
+    # focused = ipc.get_tree().find_focused()
+    # if focused.fullscreen_mode and (
+    #     not spterm or spterm.window != focused.window
+    # ):
+    #     focused.command('fullscreen disable')
     if spterm:
         # 1. We first show spterm from scratchpad workspace to outside workspace.
         spterm.command('scratchpad show')

@@ -13,5 +13,5 @@ def on_workspace_focus(change, old):
 
 
 if __name__ == '__main__':
-    i3.on('workspace::focus', on_workspace_focus)
+    i3.on(i3ipc.Event.WORKSPACE_FOCUS, on_workspace_focus)
     i3.main()
