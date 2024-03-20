@@ -48,9 +48,9 @@ bindsym $mod+Shift+Control+7 rename workspace to $ws7
 bindsym $mod+Shift+Control+8 rename workspace to $ws8
 bindsym $mod+Shift+Control+9 rename workspace to $ws9
 bindsym $mod+Control+Shift+q [workspace="__focused__"] kill
-bindsym $mod+r exec --no-startup-id python3 ~/.config/i3/scripts/i3/mv.py
-bindsym $mod+g exec --no-startup-id python3 ~/.config/i3/scripts/i3/mv.py -g
-bindsym $mod+Shift+g exec --no-startup-id python3 ~/.config/i3/scripts/i3/mv.py -c
+bindsym $mod+r exec --no-startup-id python3 ~/.config/i3/scripts/i3/bulkmove.py
+bindsym $mod+g exec --no-startup-id python3 ~/.config/i3/scripts/i3/bulkmove.py -g
+bindsym $mod+Shift+g exec --no-startup-id python3 ~/.config/i3/scripts/i3/bulkmove.py -c
 # Switch
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
