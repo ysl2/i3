@@ -35,24 +35,16 @@ def show_spterm(ipc, spterm):
         spterm.command('scratchpad show')
         # 2. Then we search it in outside workspaces.
         spterm = wait_spterm(ipc)
-        mons = {
-            mon.ipc_data['name']: {
-                'width': mon.ipc_data['rect']['width'],
-                'height': mon.ipc_data['rect']['height']
-            }
-            for mon in ipc.get_outputs()
-        }
-        mon = mons[spterm.ipc_data['output']]
         # 3. And we set the target size for spterm.
-        width = mon['width'] >> 1
-        height = mon['height'] >> 1
+        mon = next((mon for mon in ipc.get_outputs() if mon.name == spterm.ipc_data['output']), None)
+        width = mon.rect.width >> 1
+        height = mon.rect.height >> 1
         # 4. Finally, we resize spterm and move it to center.
         while True:
             time.sleep(0.05)
             spterm.command(f'resize set {width} px {height} px')
             spterm = wait_spterm(ipc)
-            rect = spterm.ipc_data['rect']
-            if rect['width'] == width and rect['height'] == height:
+            if spterm.rect.width == width and spterm.rect.height == height:
                 spterm.command('move position center')
                 return
     # Create spterm
