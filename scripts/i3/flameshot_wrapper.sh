@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# NOTE: flameshot needs dunst, otherwise it will be very slow.
+
 export QT_QPA_PLATFORMTHEME=gtk3
 
 if [ -z "$(pidof flameshot)" ]; then
