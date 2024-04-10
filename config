@@ -26,6 +26,7 @@ for_window [class="Yad"] floating enable
 for_window [class="feh"] floating enable
 # Others
 for_window [class="ITK-SNAP"] border normal
+for_window [class="wechat"] floating enable, move position center
 
 set $mod Mod4
 # Define names for default workspaces for which we configure key bindings later on.
