@@ -4,7 +4,9 @@ import subprocess
 import sys
 import i3ipc
 import argparse
+import time
 
+INTERVAL = 0.05
 
 MONS = {
     'u': 'up',
@@ -63,12 +65,18 @@ def move_workspace_to_workspace(ipc, ws_from, ws_to):
 
 
 def move_workspace_to_monitor(ipc, ws, mon):
-    ipc.command(f'workspace {ws}; move workspace to output {project(mon)}')
+    ipc.command(f'workspace "{ws}"; move workspace to output {project(mon)}')
+
+    time.sleep(INTERVAL)
+
+    ipc.command(f'workspace "{ws}"')
 
 
 def move_container_to_workspace(ipc, ws):
     focused = ipc.get_tree().find_focused()
     focused.command(f'move to workspace "{ws}"')
+
+    time.sleep(INTERVAL)
 
     focused = ipc.get_tree().find_by_id(focused.id)
     focused.command('focus')
@@ -77,6 +85,8 @@ def move_container_to_workspace(ipc, ws):
 def move_container_to_monitor(ipc, mon):
     focused = ipc.get_tree().find_focused()
     focused.command(f'move to output {project(mon)}')
+
+    time.sleep(INTERVAL)
 
     focused = ipc.get_tree().find_by_id(focused.id)
     focused.command('focus')
@@ -92,7 +102,7 @@ def goto_workspace(ipc, ws):
 
 
 def goto_monitor(ipc, mon):
-    ipc.command(f'focus {project(mon)}')
+    ipc.command(f'focus output {project(mon)}')
 
 
 def kill_workspace(ipc, ws):
@@ -140,42 +150,48 @@ def main():
         # obj_to can be a workspace, a monitor, or a container
         obj_to = project(sequence[i + 1])
 
-        if not is_legal(obj_from):
-            continue
+        def _fn():
+            if not is_legal(obj_from):
+                return False
 
-        if not is_legal(obj_to):
-            if is_container(obj_from):
-                retitle_container(ipc, obj_to)
-            continue
+            if not is_legal(obj_to):
+                if is_container(obj_from):
+                    retitle_container(ipc, obj_to)
+                    return True
+                return False
 
-        if is_kill(obj_from) and is_workspace(obj_to):
-            kill_workspace(ipc, obj_to)
-            continue
+            if is_kill(obj_from) and is_workspace(obj_to):
+                kill_workspace(ipc, obj_to)
+                return True
 
-        if is_goto(obj_from) and is_workspace(obj_to):
-            goto_workspace(ipc, obj_to)
-            continue
+            if is_goto(obj_from) and is_workspace(obj_to):
+                goto_workspace(ipc, obj_to)
+                return True
 
-        if is_goto(obj_from) and is_monitor(obj_to):
-            goto_monitor(ipc, obj_to)
-            continue
+            if is_goto(obj_from) and is_monitor(obj_to):
+                goto_monitor(ipc, obj_to)
+                return True
 
-        if is_workspace(obj_from) and is_workspace(obj_to):
-            move_workspace_to_workspace(ipc, obj_from, obj_to)
-            continue
+            if is_workspace(obj_from) and is_workspace(obj_to):
+                move_workspace_to_workspace(ipc, obj_from, obj_to)
+                return True
 
-        if is_workspace(obj_from) and is_monitor(obj_to):
-            move_workspace_to_monitor(ipc, obj_from, obj_to)
-            continue
+            if is_workspace(obj_from) and is_monitor(obj_to):
+                move_workspace_to_monitor(ipc, obj_from, obj_to)
+                return True
 
-        if is_container(obj_from) and is_workspace(obj_to):
-            move_container_to_workspace(ipc, obj_to)
-            continue
+            if is_container(obj_from) and is_workspace(obj_to):
+                move_container_to_workspace(ipc, obj_to)
+                return True
 
-        if is_container(obj_from) and is_monitor(obj_to):
-            move_container_to_monitor(ipc, obj_to)
-            continue
+            if is_container(obj_from) and is_monitor(obj_to):
+                move_container_to_monitor(ipc, obj_to)
+                return True
 
+            return False
+
+        if _fn():
+            time.sleep(INTERVAL)
 
 # def test_move_workspace_to_monitor():
 #     ipc = i3ipc.Connection()
