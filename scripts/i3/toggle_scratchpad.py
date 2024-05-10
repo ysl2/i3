@@ -30,16 +30,15 @@ def show_spterm(ipc, spterm):
     #     not spterm or spterm.window != focused.window
     # ):
     #     focused.command('fullscreen disable')
-    if spterm:
-        # 1. We first show spterm from scratchpad workspace to outside workspace.
-        spterm.command('scratchpad show')
-        # 2. Then we search it in outside workspaces.
+
+    def wait_resize_spterm():
+        # 1. Fisrt, we search it in outside workspaces.
         spterm = wait_spterm(ipc)
-        # 3. And we set the target size for spterm.
+        # 2. Then, we set the target size for spterm.
         mon = next((mon for mon in ipc.get_outputs() if mon.name == spterm.ipc_data['output']), None)
         width = mon.rect.width >> 1
         height = mon.rect.height >> 1
-        # 4. Finally, we resize spterm and move it to center.
+        # 3. Finally, we resize spterm and move it to center.
         while True:
             time.sleep(0.05)
             spterm.command(f'resize set {width} px {height} px')
@@ -47,12 +46,22 @@ def show_spterm(ipc, spterm):
             if spterm.rect.width == width and spterm.rect.height == height:
                 spterm.command('move position center')
                 return
+
+    if spterm:
+        # 1. We first show spterm from scratchpad workspace to outside workspace.
+        spterm.command('scratchpad show')
+        # 2. Then, we wait and resize spterm.
+        wait_resize_spterm()
+        return
+
     # Create spterm
     terminal_cmd = f'alacritty -c {args.scratchpad_class}'
     if args.cwd:
         ipc.command(f'exec --no-startup-id cd "$(xcwd)" && exec {terminal_cmd}')
     else:
         ipc.command(f'exec --no-startup-id {terminal_cmd}')
+    # Wait for spterm to appear, and resize it.
+    wait_resize_spterm()
     # Log the spterm class.
     logdir.mkdir(parents=True, exist_ok=True)
     with open(logfile, 'w') as f:
