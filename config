@@ -8,6 +8,7 @@ smart_borders on
 gaps inner 10px
 
 # Rules
+# WM_CLASS(STRING) = "instance", "class"
 # Float and resize and center
 for_window [class="spterm"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="Lxappearance"] floating enable, resize set 50 ppt 50 ppt, move position center
