@@ -14,7 +14,10 @@ Also:
 pip install autotiling
 cargo install i3-autolayout
 sudo apt install xdotool rofi xcwd yad
-git clone git@github.com/ysl2/i3expod-ng.git
+
+# If using anaconda, you should `conda install -c conda-forge libstdcxx-ng`
+# Ref: https://stackoverflow.com/a/75333466/13379393
+git clone git@github.com/ysl2/i3expod-ng.git && cd i3expod-ng && make install
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.
