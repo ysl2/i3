@@ -14,6 +14,7 @@ Also:
 pip install autotiling
 cargo install i3-autolayout
 sudo apt install xdotool rofi xcwd yad
+git clone git@github.com/ysl2/i3expod-ng.git
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.
