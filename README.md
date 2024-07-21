@@ -17,7 +17,8 @@ sudo apt install xdotool rofi xcwd yad
 
 # If using anaconda, you should `conda install -c conda-forge libstdcxx-ng`
 # Ref: https://stackoverflow.com/a/75333466/13379393
-git clone git@github.com/ysl2/i3expod-ng.git && cd i3expod-ng && make install
+# Disable this due to bug.
+# git clone git@github.com/ysl2/i3expod-ng.git && cd i3expod-ng && make install
 ```
 
 `config_bak` and `i3blocs.bak.conf` are the official config files, just for backup.
