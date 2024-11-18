@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(date +"%F %a %T")"
+echo "$(date +'%F %a %T')"
