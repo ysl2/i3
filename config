@@ -77,10 +77,10 @@ bindsym $mod+equal resize grow height 10 px or 10 ppt
 # Scratchpad & Sticky
 bindsym $mod+Shift+0 move scratchpad
 bindsym $mod+0 scratchpad show; resize set 50 ppt 50 ppt; move position center
-bindsym $mod+y exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_scratchpad.py spterm
-bindsym $mod+Shift+y exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_scratchpad.py spterm -c
-bindsym $mod+Ctrl+y exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_scratchpad.py spterm -r
 bindsym $mod+s exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_sticky.py
+bindsym $mod+backslash exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_scratchpad.py spterm
+bindsym $mod+Shift+backslash exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_scratchpad.py spterm -c
+bindsym $mod+Ctrl+backslash exec --no-startup-id python3 ~/.config/i3/scripts/i3/toggle_scratchpad.py spterm -r
 # Flameshot
 bindsym $mod+Ctrl+a exec --no-startup-id ~/.config/i3/scripts/i3/flameshot_wrapper.sh gui
 bindsym $mod+Shift+Ctrl+a exec --no-startup-id ~/.config/i3/scripts/i3/flameshot_wrapper.sh launcher
