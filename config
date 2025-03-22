@@ -18,6 +18,7 @@ for_window [class="flameshot" title="Save screenshot"] floating enable, resize s
 for_window [window_role="GtkFileChooserDialog"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="Virt-manager" title="Virtual Machine Manager"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="ColorPicker"] floating enable, resize set 50 ppt 50 ppt, move position center
+for_window [class="feh"] floating enable, resize set 50 ppt 50 ppt, move position center
 # Float and center
 for_window [class="wechat"] floating enable, move position center
 for_window [class="QQ"] floating enable, move position center
