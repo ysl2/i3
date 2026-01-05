@@ -249,6 +249,6 @@ bar {
             urgent_workspace   #900000b0 #900000b0 #ffffffb0
             binding_mode       #900000b0 #900000b0 #ffffffb0
         }
-        tray_output primary
+        tray_output $my_tray_output
         workspace_min_width 40
 }

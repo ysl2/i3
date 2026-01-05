@@ -1,3 +1,4 @@
 set $my_autostart bash ~/.config/i3/autostart.sh
+set $my_tray_output primary
 
 include ~/.config/i3/config.d/config
