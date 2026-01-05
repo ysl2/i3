@@ -1,5 +1,5 @@
 # Autoload
-exec --no-startup-id bash ~/.config/i3/autostart.sh
+exec --no-startup-id $my_autostart
 # Settings
 set $terminal alacritty
 default_border pixel 3
