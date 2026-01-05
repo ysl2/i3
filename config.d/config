@@ -236,7 +236,6 @@ bindsym $mod+Shift+e exec --no-startup-id bash ~/.config/i3/scripts/i3/exit.sh
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        i3bar_command i3bar -t
         position top
         # Ref: https://i3wm.org/docs/userguide.html#_colors
         colors {
