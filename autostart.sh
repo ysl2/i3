@@ -4,7 +4,7 @@
 # === Common ===
 # ==============
 # -> picom, natural scrolling, keyboard, etc.
-[ -f ~/.vocal/0/scripts/wm/autostart.sh ] && ~/.vocal/0/scripts/wm/autostart.sh
+[ -f ~/.vocal/0/scripts/wm/autostart_x11.sh ] && ~/.vocal/0/scripts/wm/autostart_x11.sh
 
 
 # ===============
