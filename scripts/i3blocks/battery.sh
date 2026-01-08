@@ -1,4 +1,5 @@
 #!/bin/bash
+
 get_battery() {
     status_file=/sys/class/power_supply/BAT0/status
     capacity_file=/sys/class/power_supply/BAT0/capacity
