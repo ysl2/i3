@@ -33,6 +33,7 @@ for_window [class="baidunetdisk"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="ToDesk"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
 # Others
 for_window [class="ITK-SNAP"] border normal
 
